@@ -1,0 +1,19 @@
+/* Entrance motion starts immediately and never waits for the video. */
+.revised-hero>video{transition:transform 1.6s cubic-bezier(.2,.65,.3,1),filter 1.3s ease,object-position 1.6s ease;transform:scale(1)}
+.revised-hero .film-shade{transition:opacity 1.35s ease;opacity:1}
+.revised-hero .hero-content{transition:opacity 1s ease .1s,transform 1.25s cubic-bezier(.18,.7,.25,1) .1s,filter 1s ease .1s;opacity:1;transform:translateY(0);filter:blur(0)}
+.revised-hero .hero-orbit{transition:opacity 1.4s ease,transform .9s ease-out}
+.site-header{transition:opacity .9s ease,transform 1s ease}
+.revised-hero-bottom{transition:opacity 1s ease .3s}
+@keyframes hero-arrive{from{opacity:.15;transform:translateY(26px);filter:blur(5px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+@keyframes backdrop-arrive{from{transform:scale(1.045)}to{transform:scale(1)}}
+@keyframes shade-arrive{from{opacity:.45}to{opacity:1}}
+@keyframes nav-arrive{from{opacity:.3;transform:translateY(-9px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:no-preference){
+ .revised-hero>video{animation:backdrop-arrive 1.8s cubic-bezier(.2,.65,.3,1) both}
+ .revised-hero .film-shade{animation:shade-arrive 1.35s ease both}
+ .revised-hero .hero-content{animation:hero-arrive 1.25s cubic-bezier(.18,.7,.25,1) both}
+ .site-header{animation:nav-arrive .8s ease both}
+ .revised-hero-bottom{animation:hero-arrive 1.3s ease both}
+}
+@media(prefers-reduced-motion:reduce){.revised-hero>video,.revised-hero .film-shade,.revised-hero .hero-content,.revised-hero .hero-orbit,.site-header,.revised-hero-bottom{transition:none}}
